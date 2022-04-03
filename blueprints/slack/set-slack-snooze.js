@@ -9,15 +9,27 @@ const headers = {
 };
 
 // Set status_text input
-let durationMin = Blueprint.newInput("duration_min", "Duration (Minutes)", "text");
+let durationMin = Blueprint.newInput(
+  "duration_min",
+  "Duration (Minutes)",
+  "text"
+);
 
 Blueprint.onExecution = async function () {
-  const minutes = Number(durationMin.getValue()) || 0;
+  const minutes = Number(durationMin.getValue() || 0);
 
-  const response = await UrlFetch(`${apiUrl}dnd.setSnooze?num_minutes=${minutes}`, {
-    method: "post",
-    headers: headers
-  });
+  try {
+    // POST https://slack.com/api/dnd.setSnooze?num_minutes=123
+    const response = await UrlFetch(
+      `${apiUrl}dnd.setSnooze?num_minutes=${minutes}`,
+      {
+        method: "post",
+        headers: headers,
+      }
+    );
+  } catch (error) {
+    print(error);
+  }
 
   // Use print() for debugging
   print(response);
