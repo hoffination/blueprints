@@ -17,6 +17,12 @@
       "name": "Set Slack Status",
       "description": "Set Slack Status.",
       "auth_scope": ["users.profile:write"]
+    },
+    {
+      "id": "set-slack-snooze",
+      "name": "Set Slack Snooze",
+      "description": "Set Slack Snooze.",
+      "auth_scope": ["dnd:write"]
     }
   ]
 }
