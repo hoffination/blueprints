@@ -27,15 +27,16 @@ Blueprint.onExecution = async function () {
         headers: headers,
       }
     );
+
+    // Use print() for debugging
+    print(response);
+
+    const json = JSON.parse(response);
+
+    // Create result
+    Blueprint.newResult("success", "Status Set");
+    
   } catch (error) {
     print(error);
   }
-
-  // Use print() for debugging
-  print(response);
-
-  const json = JSON.parse(response);
-
-  // Create result
-  Blueprint.newResult("success", "Status Set");
 };
