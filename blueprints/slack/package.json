@@ -3,7 +3,7 @@
   "name": "Slack",
   "description": "Set your Slack status.",
   "icon": "icon.png",
-  "author": "HenriChabrand",
+  "author": "HenriChabrand and Hoffination",
   "license": "MIT",
   "authentification": {
     "method": "oauth_2",
