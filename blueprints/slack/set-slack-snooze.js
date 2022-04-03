@@ -21,7 +21,7 @@ Blueprint.onExecution = async function () {
   try {
     // POST https://slack.com/api/dnd.setSnooze?num_minutes=123
     const response = await UrlFetch(
-      `${apiUrl}dnd.setSnooze?num_minutes=${minutes}`,
+      `${apiURL}dnd.setSnooze?num_minutes=${minutes}`,
       {
         method: "post",
         headers: headers,
