@@ -9,19 +9,14 @@ const headers = {
 };
 
 // Set status_text input
-let durationMin = Blueprint.newInput("duration_min", "Status Text", "number");
+let durationMin = Blueprint.newInput("duration_min", "Duration (Minutes)", "text");
 
 Blueprint.onExecution = async function () {
-  // Set request body
-  var requestBody = {
-    num_minutes: durationMin.getValue() || " ",
-  }; 
+  const minutes = Number(durationMin.getValue()) || 0;
 
-  // Call set Satus Endpoint
-  const response = await UrlFetch(apiURL + "dnd.snooze", {
+  const response = await UrlFetch(`${apiUrl}dnd.setSnooze?num_minutes=${minutes}`, {
     method: "post",
-    headers: headers,
-    body: JSON.stringify(requestBody),
+    headers: headers
   });
 
   // Use print() for debugging
